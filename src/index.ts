@@ -8,3 +8,9 @@ const api = new FairWorkAPI(apiKey);
 api.getAwards(1, 10, "Fast Food").then((data) => {
    console.log(JSON.stringify(data));
 });
+
+api.getSpecificAward("MA000003", 1, 1).then((award) => {
+   api.getAwardClassifications(award[0]).then((data) => {
+      console.log(data);
+   });
+});
